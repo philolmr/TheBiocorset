@@ -1010,9 +1010,17 @@ canvas.addEventListener('click', (event) => {
             text2Mesh.updateText("Impression 3D : Une fois le modèle 3D du corset finalisé, le filament PLA est utilisé pour imprimer le corset à l'aide d'une imprimante 3D. Le processus d’impression 3D permet de créer un objet précis et fonctionnel en utilisant le PLA comme matériau d’impression.");
 
           }
-          textMesh.visible = !textMesh.visible;
-          text2Mesh.visible = !text2Mesh.visible;
-          clicMesh.visible = !clicMesh.visible;
+          if (!textMesh.visible && !text2Mesh.visible && !clicMesh.visible) {
+            setTimeout(() => {
+              textMesh.visible = true;
+              text2Mesh.visible = true;
+              clicMesh.visible = true;
+            }, 1000); // 0.5 seconds
+          } else {
+            textMesh.visible = false;
+            text2Mesh.visible = false;
+            clicMesh.visible = false;
+          }
           
         };
             
